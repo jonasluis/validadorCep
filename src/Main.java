@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +12,9 @@ public class Main {
         try{
             Endereco novoEndereco = consultaCep.buscaEndereco(buscaCEP);
             System.out.println(novoEndereco);
-        } catch (RuntimeException e) {
+            GeradorDeArquivo geradorDeArquivo = new GeradorDeArquivo();
+            geradorDeArquivo.geraJson(novoEndereco);
+        } catch (RuntimeException | IOException e) {
             throw new RuntimeException(e.getMessage());
 
         }
