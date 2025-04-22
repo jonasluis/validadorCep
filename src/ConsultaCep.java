@@ -24,7 +24,7 @@ public class ConsultaCep {
 
             return new Gson().fromJson(responseBody, Endereco.class);
 
-        } catch (IOException | InterruptedException e) {
+        } catch (Exception e) {
             throw new RuntimeException("CEP Inválido!");
         }
     }
